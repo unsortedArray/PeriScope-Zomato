@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Periscope</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+
+  <body>
+  	<nav id="navCol" role="navigation" class="froly">
+    	<div class="nav-wrapper container">
+      <a id="logo-container" href="mainPage.html#navCol" class="brand-logo white-text">PeriScope</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href='#' id = 'zuser'></a></li>
+        <li><a class="white-text" href="#" id="out">LOG OUT</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href='#' id = 'zuser1'></a></li>
+        <li><a id ="out1">LOG OUT</a></li>
+      </ul>
+      <a  data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
+    	</div>
+  </nav>
+
+  	<div class="container bordered center">
+  		<br>
+  		<br>
+  		<div class="row">
+  			<div class="centered col" >
+  				<h4 class="container"><span id="myquery"></span></h3>
+  				<a class="btn-floating red modal-trigger" href="#modal1" onclick="fetchQuery()"><i class="material-icons">edit</i></a>
+  			</div>
+  		</div>
+      <div class="row">
+        <a class='dropdown-button btn col3' href='#' data-activates='dropdown1'>Colors</a>
+        <a class='dropdown-button btn col3' href='#' data-activates='dropdown2'>Types</a>
+        <a class='dropdown-button btn col3' href='#' data-activates='dropdown3'>Background Color</a>
+        <a class="waves-effect waves-light btn" onclick="customiseGraph()">Customise</a>
+      </div>
+  		<div class="row">
+  			
+  				<canvas id="densityChart" >FusionCharts XT will load here!</canvas>
+  			
+  		</div>
+  	</div>
+  	<div id="modal1" class="modal">
+    <div class="modal-content">
+      <form class="col s12">
+        <div class="form-container">
+          <h4 class="teal-text center">Query</h4>
+
+          <div class="">
+            <div class="input-field col s12">
+              <input id="updatedQuery" type="text" required="">
+              
+            </div>
+          </div>
+          
+          <br>
+          <center>
+
+            <br>
+          </center>
+        </div>
+      </form>
+      <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="UpadteQuery()">Submit</button>
+    </div>
+    </div>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li class="collection-item">Red</li>
+      <li>Green</li>
+      <li>Blue</li>
+      <li>Yellow</li>
+    </ul>
+    <ul id='dropdown2' class='dropdown-content'>
+      <li>Line</li>
+      <li>Bar</li>
+      <li>Pie</li>
+      <li>Bubble</li>
+    </ul>
+    <ul id='dropdown3' class='dropdown-content'>
+      <li>Red</li>
+      <li>Green</li>
+      <li>Blue</li>
+      <li>Yellow</li>
+    </ul>
+    
+
+  <footer id="footer" class="page-footer froly">
+    
+      <div id="content-wrap">
+       <a class="white-text text-lighten-3" href="mainPage.html#navCol">PeriScope</a>
+      </div>
+    </div>
+  </footer>
+  
+  </body>
+
+
+
+<!--  Scripts-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script type="text/javascript" src="js/firebaseInit.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/init_s.js"></script>
+    <script src="js/viewchart.js"></script>
+    </body>
+</html>

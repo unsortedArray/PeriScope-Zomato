@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>User Board</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="css/viewdashboard.css">
+
+</head>
+<body >
+
+  <nav id="navCol" role="navigation" class="froly">
+    	<div class="nav-wrapper container">
+      <a id="logo-container" href="mainPage.html#navCol" class="brand-logo white-text">PeriScope</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href='#' id = 'zuser'></a></li>
+        <li><a class="white-text" href="#" id="out">LOG OUT</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href='#' id = 'zuser1'></a></li>
+        <li><a id ="out1">LOG OUT</a></li>
+      </ul>
+      <a  data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
+    	</div>
+  </nav>
+  <div class="fixed-action-btn horizontal">
+	  	<a class="btn-floating btn-large red" id="add-btn-fixed">
+	    	<i class="large material-icons">add</i>
+	  	</a>
+	  	<ul>
+	   	 <li><a class="btn-floating red modal-trigger" href = "#modal1"><i class="material-icons">border_color</i></a></li>
+	  	</ul>
+	</div>
+	<h1 style = "text-align : center; color:black"><span id="dashboard_name"></span></h1>
+	    <div class = "row">
+	      <div class = "col offset-s2 s8 z-depth-2" id="task_list_cont">
+	        <h5 style = "text-align : center">Your Queries</h5>
+	        <hr>
+	          <table class="bordered centered">
+	            <thead>
+	            </thead>
+	            <tbody id = "query_list">
+	            </tdoby>
+	          </table>
+
+	      </div>
+	  </div>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <form class="col s12">
+        <div class="form-container">
+          <h4 class="teal-text center">Query</h4>
+
+          <div class="">
+            <div class="input-field col s12">
+              <input id="query" type="text" required="">
+              <label for="query">New Query</label>
+            </div>
+          </div>
+          
+          <br>
+          <center>
+
+            <br>
+          </center>
+        </div>
+      </form>
+      <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="addQuery()">Submit</button>
+    </div>
+  </div>
+
+  <footer id="footer" class="page-footer froly">
+    
+      <div id="content-wrap">
+       <a class="white-text text-lighten-3" href="mainPage.html#navCol">PeriScope</a>
+      </div>
+    </div>
+  </footer>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form class="col s12">
+        <div class="form-container">
+          <h4 class="teal-text center">Query</h4>
+
+          <div class="">
+            <div class="input-field col s12">
+              <input id="updateQuery" type="text" required="">
+              <label for="query">Update Query</label>
+            </div>
+          </div>
+          
+          <br>
+          <center>
+
+            <br>
+          </center>
+        </div>
+      </form>
+      <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="submitUpdateQuery()">Submit</button>
+    </div>
+  </div>
+  <div class = "preloader-background ">
+        <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+        
+              <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+        
+              <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+        
+              <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+    </div>
+
+<!--  Scripts-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script type="text/javascript" src="js/firebaseInit.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/init_s.js"></script>
+    <script src="js/viewdashboard.js"></script>
+    </body>
+</html>
