@@ -38,11 +38,42 @@
   			</div>
   		</div>
       <div class="row">
-        <a class='dropdown-button btn col3' href='#' data-activates='dropdown1'>Colors</a>
-        <a class='dropdown-button btn col3' href='#' data-activates='dropdown2'>Types</a>
-        <a class='dropdown-button btn col3' href='#' data-activates='dropdown3'>Background Color</a>
-        <a class="waves-effect waves-light btn" onclick="customiseGraph()">Customise</a>
-      </div>
+          <div class="input-field col s3">
+              <select id="color">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Color 1</option>
+                <option value="2">Color 2</option>
+                <option value="3">Color 3</option>
+              </select>
+              <label>Color</label>
+          </div>
+
+            <div class="input-field col s3">
+              <select id="type">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="bar">Bar</option>
+                <option value="line">Line</option>
+                <option value="pie">Pie</option>
+                <option value="radar">Radar</option>
+                <option value="doughnut">Doughnut</option>
+              </select>
+              <label>Type</label>
+            </div>
+            <div class="input-field col s3">
+              <select id="backgroundColor">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="rgba(255,51,52,0.3)">Color 1</option>
+                  <option value="hsla(204, 255, 204, 0.6">Color 2</option>
+                  <option value="rgba(50, 115, 220, 0.3)">Color 2</option>
+                  <option value="hsla(14, 100%, 53%, 0.6)">Color 3</option>
+    
+              </select>
+              <label>Background Color</label>
+            </div>
+            <div class="input-field col s3">
+              <a class="waves-effect waves-light btn" onclick="customiseChart()">Submit</a>
+            </div>
+        </div>
   		<div class="row">
   			
   				<canvas id="densityChart" >FusionCharts XT will load here!</canvas>
@@ -72,24 +103,6 @@
       <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="UpadteQuery()">Submit</button>
     </div>
     </div>
-    <ul id='dropdown1' class='dropdown-content'>
-      <li class="collection-item">Red</li>
-      <li>Green</li>
-      <li>Blue</li>
-      <li>Yellow</li>
-    </ul>
-    <ul id='dropdown2' class='dropdown-content'>
-      <li>Line</li>
-      <li>Bar</li>
-      <li>Pie</li>
-      <li>Bubble</li>
-    </ul>
-    <ul id='dropdown3' class='dropdown-content'>
-      <li>Red</li>
-      <li>Green</li>
-      <li>Blue</li>
-      <li>Yellow</li>
-    </ul>
     
 
   <footer id="footer" class="page-footer froly">
