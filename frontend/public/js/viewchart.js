@@ -14,7 +14,7 @@ Chart.defaults.global.animationEasing = "easeOutBounce";
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.scaleLineColor = "black";
 Chart.defaults.global.scaleFontSize = 16;
-var currenType = "bar"
+var currenType = "horizontalBar"
 var currentColor = ""
 var currentBorderColor =""
 var yAxisObject =[]
@@ -104,7 +104,6 @@ function QueriesDatabaseBackend(query){
 }
 function getDimmensions(value, currentColor)
  {
-    console.log(currentColor,currentBorderColor)
     if(currentBorderColor ="")
     {
         currentBorderColor = borderColorArray[Math.floor(Math.random() * Math.floor(borderColorArray.length))]
@@ -120,7 +119,6 @@ function getDimmensions(value, currentColor)
         labelsArray.push(labelObject[key])
     }
     labelsArray.shift()
-    console.log(labelsArray)
     for(key in labelsArray)
     {
         
@@ -129,10 +127,8 @@ function getDimmensions(value, currentColor)
             position:'left',
             scaleLabel: {display:true,labelString:labelsArray[key]}
         }
-        console.log(currentLabelArrayObject)
         yAxisObject.push(currentLabelArrayObject)
     }
-    console.log(yAxisObject)
     var mylabels = []
 	var output = value.map(function(obj) {
   		return Object.keys(obj).map(function(key) { 
@@ -145,7 +141,7 @@ function getDimmensions(value, currentColor)
     var datasets =[]
     for(var i =0;i<output.length;i++)
     {
-        console.log(labelsArray[i])
+        
         var sampledata= {
            
             data : output[i],
@@ -178,6 +174,14 @@ var chartOptions = {
     }],
     yAxes:yAxisObject
   },
+  legend: {
+    display: true,
+    position: 'top',
+    labels: {
+      boxWidth: 80,
+      fontColor: 'black'
+    }
+  }
   
 }
  renderChartjs(myData,chartOptions)

@@ -48,6 +48,10 @@ function retrive() {
         
         if(snap.val() == null)
         {
+          $('.preloader-background').fadeOut('slow');
+          $('.preloader-wrapper')
+          .fadeOut();
+          return
             // do something like logging error or designing the modal
         }
         
