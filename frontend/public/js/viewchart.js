@@ -17,7 +17,8 @@ Chart.defaults.global.scaleFontSize = 16;
 var currenType = "bar"
 var currentColor = ""
 var currentBorderColor =""
-var borderColorArray =["rgba(0,0,255,0.5)","rgb(128,0,0,0.5)","rgba(255,0,255,0.8)"]
+var yAxisObject =[]
+var borderColorArray =["rgba(0,0,255,0.5)","rgb(128,0,0,0.5)","rgba(255,0,255,0.8)","rgba(0,0,255,0.3)","rgba(127,0,255,0.1)"]
 var pointColorArray =["rgba(0,0,255,0.5)","rgb(128,0,0,0.5)","rgba(255,0,255,0.8)"]
 var strokeColorArray =["rgba(0,0,255,0.5)","rgb(128,0,0,0.5)","rgba(255,0,255,0.8)"]
 var backgroundColorArray =["rgba(0,0,255,0.5)","rgb(128,0,0,0.5)","rgba(255,0,255,0.8)"]
@@ -32,15 +33,12 @@ window.addEventListener('load', function() {
     QueriesDatabaseBackend(query)
     
     initApp()
-     $('select').material_select();
+   
     var out = document.getElementById('out');
     out.onclick= SignOut 
   
 });
 
-
-$('.dropdown-trigger').dropdown();
-$('.tap-target').tapTarget('open');
 
 initApp = function() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -54,6 +52,7 @@ initApp = function() {
             document.getElementById('zuser1').innerHTML = displayName;
             
              $('.modal').modal();
+             $('select:not([multiple])').material_select();
         }
         else{
             window.location='index.html'
@@ -122,7 +121,18 @@ function getDimmensions(value, currentColor)
     }
     labelsArray.shift()
     console.log(labelsArray)
-
+    for(key in labelsArray)
+    {
+        
+        var currentLabelArrayObject ={
+            id:labelsArray[key],
+            position:'left',
+            scaleLabel: {display:true,labelString:labelsArray[key]}
+        }
+        console.log(currentLabelArrayObject)
+        yAxisObject.push(currentLabelArrayObject)
+    }
+    console.log(yAxisObject)
     var mylabels = []
 	var output = value.map(function(obj) {
   		return Object.keys(obj).map(function(key) { 
@@ -135,14 +145,18 @@ function getDimmensions(value, currentColor)
     var datasets =[]
     for(var i =0;i<output.length;i++)
     {
+        console.log(labelsArray[i])
         var sampledata= {
            
             data : output[i],
             label: labelsArray[i],
-            backgroundColor: strokeColorArray[Math.floor(Math.random() * Math.floor(strokeColorArray.length))],
-            strokeColor : strokeColorArray[Math.floor(Math.random() * Math.floor(strokeColorArray.length))],
+            backgroundColor: strokeColorArray[i],
+            borderColor : "rgba(255,255,255,1)",
             //borderColor: borderColorArray[currentBorderColor] ,// The main line color
+            borderWidth: 2,
+            yAxisID:labelsArray[i],
             borderCapStyle: 'circle',
+
         }
         datasets.push(sampledata)
     }
@@ -158,27 +172,11 @@ var myData = {
 
 var chartOptions = {
     scales: {
-    yAxes: [{
-      barPercentage: 0.5,
-      gridLines: {
-        display: false
-      }
-    }],
     xAxes: [{
-      gridLines: {
-        zeroLineColor: "black",
-        zeroLineWidth: 2
-      },
-      ticks: {
-        min: 0,
-        max: 6500,
-        stepSize: 1300
-      },
-      scaleLabel: {
-        display: true,
-        labelString: "Density in kg/m3"
-      }
-    }]
+      barPercentage: 1,
+      categoryPercentage: 0.6
+    }],
+    yAxes:yAxisObject
   },
   
 }
@@ -189,6 +187,7 @@ function renderChartjs(mydata,chartOptions)
     mixedChart = new Chart(densityChart, {
     type: currenType,
     data: mydata,
+    options:chartOptions
 });
 }
 function UpadteQuery()
